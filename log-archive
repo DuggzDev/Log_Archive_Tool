@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#Take in User input from cli
+dir="$1"
+
+# Archive file using tar and save in date/time format
+log_archive=log_archive_"$(date '+%Y%m%d_%H%M%S').tar.gz"
+
+# Compress directory using tar and save in new dir
+tar -czvf $log_archive $dir
+mkdir -p  log_directory
+cp $log_archive log_directory
+rm $log_archive
